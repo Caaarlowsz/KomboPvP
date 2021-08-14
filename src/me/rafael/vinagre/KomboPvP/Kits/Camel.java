@@ -19,72 +19,69 @@ import org.bukkit.potion.PotionEffectType;
 import me.rafael.vinagre.KomboPvP.Main;
 import me.rafael.vinagre.KomboPvP.Listeners.Array;
 
-public class Camel 
-implements Listener, CommandExecutor
-{
+public class Camel implements Listener, CommandExecutor {
 
 	@EventHandler
-	  public void onPlayerCamel(PlayerMoveEvent e)
-	  {
-	    Player p = e.getPlayer();
-	    if (((e.getTo().getBlock().getRelative(BlockFace.DOWN).getType() == Material.SAND) || (e.getTo().getBlock().getRelative(BlockFace.DOWN).getType() == Material.SANDSTONE)) && 
-	      (Array.kit.get(p) == "Camel"))
-	    {
-	      p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 120, 1));
-	      p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 120, 0));
-	      return;
-	    }
-	  }
-	  public boolean onCommand(CommandSender sender, Command command, String cmd, String[] args)
-	  {
-	    Player p = (Player)sender;
-	    ItemStack dima = new ItemStack(Material.STONE_SWORD);
-	    ItemMeta souperaa = dima.getItemMeta();
-	    souperaa.setDisplayName("§cEspada");
-	    dima.setItemMeta(souperaa);
-	    ItemStack sopa = new ItemStack(Material.MUSHROOM_SOUP);
-	    ItemMeta sopas = sopa.getItemMeta();
-	    sopas.setDisplayName("§6Sopa");
-	    sopa.setItemMeta(sopas);
-	    
-	    ItemStack capacete0 = new ItemStack(Material.AIR);
-	    
-	    ItemStack peitoral0 = new ItemStack(Material.AIR);
-	    
-	    ItemStack calca0 = new ItemStack(Material.AIR);
-	    
-	    ItemStack Bota0 = new ItemStack(Material.AIR);
-	    
-	    p.getInventory().setHelmet(capacete0);
-	    p.getInventory().setChestplate(peitoral0);
-	    p.getInventory().setLeggings(calca0);
-	    p.getInventory().setBoots(Bota0);
-	    
-	    if (cmd.equalsIgnoreCase("camel")) {
-	      if (Array.used.contains(p.getName())) {
-	    	  p.sendMessage(" §7» §cVoce ja esta usando um kit!");
-	        return true;
-	      }
-	      if (!p.hasPermission("kitpvp.kit.camel")) {
-		      p.sendMessage("§cVoce nao tem permissao para usar este kit !");
-	        return true;
-	      }
-	      Array.used.add(p.getName());
-	      p.sendMessage(" §7» Voce escolheu o kit §cCamel §7!");
-	      p.setGameMode(GameMode.ADVENTURE);
-	      p.getInventory().clear();
-	      Array.kit.put(p, "Camel");
-	      p.getInventory().addItem(new ItemStack[] { dima });
-	      Main.give(p);
-	      Main.Dj.remove(p.getName());
-	      Main.stomper.remove(p.getName());
-	      
-	      Scoreboard.ScoreDoBasic.iscoriboard(p);
-	      for (int i = 0; i <= 34; i++) {
-	        p.getInventory().addItem(new ItemStack[] { sopa });
-	      }
-	    }
-	    me.rafael.vinagre.KomboPvP.Comandos.SetArena.TeleportArenaRandom(p);
-	    return false;
-	  }
+	public void onPlayerCamel(PlayerMoveEvent e) {
+		Player p = e.getPlayer();
+		if (((e.getTo().getBlock().getRelative(BlockFace.DOWN).getType() == Material.SAND)
+				|| (e.getTo().getBlock().getRelative(BlockFace.DOWN).getType() == Material.SANDSTONE))
+				&& (Array.kit.get(p) == "Camel")) {
+			p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 120, 1));
+			p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 120, 0));
+			return;
+		}
 	}
+
+	public boolean onCommand(CommandSender sender, Command command, String cmd, String[] args) {
+		Player p = (Player) sender;
+		ItemStack dima = new ItemStack(Material.STONE_SWORD);
+		ItemMeta souperaa = dima.getItemMeta();
+		souperaa.setDisplayName("§cEspada");
+		dima.setItemMeta(souperaa);
+		ItemStack sopa = new ItemStack(Material.MUSHROOM_SOUP);
+		ItemMeta sopas = sopa.getItemMeta();
+		sopas.setDisplayName("§6Sopa");
+		sopa.setItemMeta(sopas);
+
+		ItemStack capacete0 = new ItemStack(Material.AIR);
+
+		ItemStack peitoral0 = new ItemStack(Material.AIR);
+
+		ItemStack calca0 = new ItemStack(Material.AIR);
+
+		ItemStack Bota0 = new ItemStack(Material.AIR);
+
+		p.getInventory().setHelmet(capacete0);
+		p.getInventory().setChestplate(peitoral0);
+		p.getInventory().setLeggings(calca0);
+		p.getInventory().setBoots(Bota0);
+
+		if (cmd.equalsIgnoreCase("camel")) {
+			if (Array.used.contains(p.getName())) {
+				p.sendMessage(" §7» §cVoce ja esta usando um kit!");
+				return true;
+			}
+			if (!p.hasPermission("kitpvp.kit.camel")) {
+				p.sendMessage("§cVoce nao tem permissao para usar este kit !");
+				return true;
+			}
+			Array.used.add(p.getName());
+			p.sendMessage(" §7» Voce escolheu o kit §cCamel §7!");
+			p.setGameMode(GameMode.ADVENTURE);
+			p.getInventory().clear();
+			Array.kit.put(p, "Camel");
+			p.getInventory().addItem(new ItemStack[] { dima });
+			Main.give(p);
+			Main.Dj.remove(p.getName());
+			Main.stomper.remove(p.getName());
+
+			Scoreboard.ScoreDoBasic.iscoriboard(p);
+			for (int i = 0; i <= 34; i++) {
+				p.getInventory().addItem(new ItemStack[] { sopa });
+			}
+		}
+		me.rafael.vinagre.KomboPvP.Comandos.SetArena.TeleportArenaRandom(p);
+		return false;
+	}
+}

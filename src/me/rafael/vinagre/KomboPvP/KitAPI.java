@@ -60,8 +60,7 @@ public class KitAPI implements Listener {
 	public static ArrayList<String> Mago = new ArrayList<String>();
 	public static ArrayList<String> C4 = new ArrayList<String>();
 	public static ArrayList<String> Thresh = new ArrayList<String>();
-	
-	
+
 	public static ArrayList<String> voidChallenge = new ArrayList<String>();
 	public static ArrayList<String> TellReceber = new ArrayList<String>();
 	public static HashMap<String, Integer> voidChallengeTime = new HashMap<>();
@@ -114,7 +113,7 @@ public class KitAPI implements Listener {
 		reload.remove(p.getName());
 		Laucher.remove(p.getName());
 		Sasuke.remove(p.getName());
-		
+
 		voidChallengeTime.remove(p.getName());
 		voidChallenge.remove(p.getName());
 	}

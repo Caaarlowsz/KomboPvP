@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/APIs/PaperSpigot-1.7.10-R0.1-SNAPSHOT-latest.jar"/>
 	<classpathentry kind="lib" path="/APIs/PermissionsEx-1.22.10.jar"/>
 	<classpathentry kind="lib" path="/APIs/NametagEdit-2.4.jar"/>

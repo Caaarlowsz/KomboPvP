@@ -4,24 +4,6 @@ import java.util.AbstractMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.OfflinePlayer;
-import org.bukkit.entity.Player;
-import org.bukkit.scoreboard.DisplaySlot;
-import org.bukkit.scoreboard.Objective;
-import org.bukkit.scoreboard.Scoreboard;
-import org.bukkit.scoreboard.Team;
-import com.google.common.base.Preconditions;
-import com.google.common.base.Splitter;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-
-import java.util.AbstractMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
@@ -90,7 +72,6 @@ public class SimpleScoreboard {
 		return new AbstractMap.SimpleEntry(team, result);
 	}
 
-	@SuppressWarnings("deprecation")
 	public void build() {
 		Objective obj = this.scoreboard
 				.registerNewObjective(this.title.length() > 16 ? this.title.substring(0, 15) : this.title, "dummy");

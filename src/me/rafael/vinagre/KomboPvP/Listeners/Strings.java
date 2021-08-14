@@ -1,6 +1,5 @@
 package me.rafael.vinagre.KomboPvP.Listeners;
 
-
 import me.rafael.vinagre.KomboPvP.Main;
 
 public class Strings {
